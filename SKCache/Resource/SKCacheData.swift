@@ -138,7 +138,7 @@ public extension SKCacheData {
     @discardableResult
     public func delete(for key: String) -> Bool {
         let predicate = sqlite_key == key
-        let query = self.table.filter(predicate).order(sqlite_overdue.desc)
+        let query = self.table.filter(predicate)
         do {
             try self.db?.run(query.delete())
         } catch {
